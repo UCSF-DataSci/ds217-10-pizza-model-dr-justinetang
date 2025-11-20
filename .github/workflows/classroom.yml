@@ -38,10 +38,10 @@ jobs:
     - name: Setup Jupyter Kernel
       run: |
         python -m ipykernel install --user --name=python3 --display-name="Python 3"
+    
+    - name: Install test requirements
+      run: pip install -r .github/tests/requirements.txt
 
     - name: Run tests
-      run: |
-        # Data generation and notebook execution are now handled by pytest fixture
-        # Run the correct test script (downloaded as test_assignment.py)
-        pytest .github/tests/test_assignment.py -v
+      run: pytest
 
